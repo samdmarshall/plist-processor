@@ -1,3 +1,0 @@
-[console_scripts]
-plist-processor = plistprocessor:main
-
