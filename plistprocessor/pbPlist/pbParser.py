@@ -35,6 +35,13 @@ from .                     import pbRoot
 from .                     import pbItem
 from ..Helpers.Switch      import Switch
 
+if sys.version_info < (3, 0):
+    def OpenFile(file_path):
+        return open(file_path, 'r')
+else:
+    def OpenFile(file_path):
+        return open(file_path, 'r', errors='ignore')
+
 class PBParser(object):
 
     def __init__(self, file_path=None):
@@ -43,7 +50,7 @@ class PBParser(object):
         self.file_path = file_path
         self.file_type = None
         try:
-            file_descriptor = open(file_path, 'r')
+            file_descriptor = OpenFile(file_path)
             self.data = file_descriptor.read()
             file_descriptor.close()
         except IOError as exception: # pragma: no cover

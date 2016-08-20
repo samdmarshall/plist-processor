@@ -1,0 +1,21 @@
+{
+	Home = "/Users/Samantha";
+	Shell = "/usr/local/bin/fish";
+	User = "Samantha";
+	Tools = (
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+		"true",
+	);
+}

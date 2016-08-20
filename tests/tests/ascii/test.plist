@@ -1,0 +1,21 @@
+{
+	Home = "$(HOME)";
+	Shell = "$(SHELL)";
+	User = "${USER}";
+	Tools = (
+		"$(HAS_DEFAULTS)",
+		"$(HAS_FFMPEG)",
+		"$(HAS_GIT)",
+		"$(HAS_HG)",
+		"$(HAS_OPENSSL)",
+		"$(HAS_PYTHON)",
+		"$(HAS_SCUTIL)",
+		"$(HAS_SECURITY)",
+		"$(HAS_SHUTDOWN)",
+		"$(HAS_SVN)",
+		"$(HAS_WC)",
+		"$(HAS_XATTR)",
+		"$(HAS_XCRUN)",
+		"$(HAS_XCRUNNER)",
+	);
+}
