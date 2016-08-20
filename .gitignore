@@ -2,7 +2,7 @@
 installed_files.txt
 build/
 dist/
-pyconfig.egg-info/
+plist_processor.egg-info/
 .tox/
 .coverage
 *.xcconfig
@@ -12,6 +12,3 @@ htmlcov/
 .eggs/
 lint_output.txt
 
-# make sure to include the static test output data
-!*_output.xcconfig
-!slides/*.xcconfig
