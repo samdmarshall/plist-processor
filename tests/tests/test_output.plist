@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Home</key>
+	<string>/Users/Samantha</string>
+	<key>Shell</key>
+	<string>/usr/local/bin/fish</string>
+	<key>Tools</key>
+	<array>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+		<string>true</string>
+	</array>
+	<key>User</key>
+	<string>Samantha</string>
+</dict>
+</plist>

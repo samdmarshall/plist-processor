@@ -1,0 +1,18 @@
+machine:
+  python:
+    version: 2.7.10
+  ruby:
+    version: 2.2.4
+
+dependencies:
+  pre:
+    - sudo apt-get update
+    - sudo apt-get install subversion
+    - sudo apt-get install mercurial --no-install-recommends
+  override:
+    - make install-deps
+    - pyenv local 2.7.10 3.5.0
+
+test:
+  override:
+    - make ci

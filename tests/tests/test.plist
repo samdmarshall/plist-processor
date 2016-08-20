@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Home</key>
+	<string>$(HOME)</string>
+	<key>Shell</key>
+	<string>$(SHELL)</string>
+	<key>User</key>
+	<string>${USER}</string>
+	<key>Tools</key>
+	<array>
+		<string>$(HAS_DEFAULTS)</string>
+		<string>$(HAS_FFMPEG)</string>
+		<string>$(HAS_GIT)</string>
+		<string>$(HAS_HG)</string>
+		<string>$(HAS_OPENSSL)</string>
+		<string>$(HAS_PYTHON)</string>
+		<string>$(HAS_SCUTIL)</string>
+		<string>$(HAS_SECURITY)</string>
+		<string>$(HAS_SHUTDOWN)</string>
+		<string>$(HAS_SVN)</string>
+		<string>$(HAS_WC)</string>
+		<string>$(HAS_XATTR)</string>
+		<string>$(HAS_XCRUN)</string>
+		<string>$(HAS_XCRUNNER)</string>
+	</array>
+</dict>
+</plist>
