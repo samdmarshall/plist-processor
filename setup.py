@@ -41,7 +41,6 @@ setup(
     packages = [ 
         'plistprocessor',
         'plistprocessor/Helpers',
-        'plistprocessor/pbPlist',
         'plistprocessor/Processor',
     ],
     entry_points = { 
@@ -50,6 +49,6 @@ setup(
     test_suite = 'tests.plistprocessor_test',
     zip_safe = False,
     install_requires = [
-        'biplist == 1.0.1'
+        'pbPlist'
     ]
 )

@@ -28,11 +28,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__           import print_function
 import sys
+import pbPlist
 import argparse
 from .version             import __version__ as PLIST_PROCESSOR_VERSION
-from .pbPlist             import pbPlist
 from .Processor           import Environment
 
 # Main
@@ -66,7 +65,7 @@ def main(argv=sys.argv[1:]):
     has_input = args.input is not None
     has_output = args.output is not None
     if has_input and has_output:
-        plist_obj = pbPlist.PBPlist(args.input)
+        plist_obj = pbPlist.pbPlist.PBPlist(args.input)
 
         pre_processor = Environment.Processor(plist_obj)
 

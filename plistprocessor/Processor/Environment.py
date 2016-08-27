@@ -71,7 +71,7 @@ class Processor(object):
         self.object = obj
 
     def process(self):
-        processDictionary(self.object.root)         
+        processDictionary(self.object.root)
 
     def write(self, file_path):
         self.object.write(file_path)

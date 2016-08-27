@@ -31,10 +31,10 @@
 import os
 import sys
 import string
-import itertools
+import pbPlist
 import unittest
+import itertools
 import plistprocessor
-import plistprocessor.pbPlist
 
 test_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tests')
 
@@ -45,8 +45,8 @@ def LoadTestDirectoryAndTestWithName(test, path_subdir, test_file_name):
     test_expected_output = os.path.join(test_path, test_file_name+'_expected.plist')
     args = ['--input', test_input_path, '--output', test_generated_output]
     plistprocessor.main(args)
-    generated_output = plistprocessor.pbPlist.pbPlist.PBPlist(test_generated_output)
-    expected_output = plistprocessor.pbPlist.pbPlist.PBPlist(test_expected_output)
+    generated_output = pbPlist.pbPlist.PBPlist(test_generated_output)
+    expected_output = pbPlist.pbPlist.PBPlist(test_expected_output)
     test.assertEqual(len(generated_output.root), len(expected_output.root))
 
 class plistProcessorTestCases(unittest.TestCase):
