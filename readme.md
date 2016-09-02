@@ -31,7 +31,7 @@ To install the tool from the repo, clone from Github then run the respective `ma
 
 
 ## Usage
-To use **pyconfig** to generate an `.xcconfig` file, you will have to pass it a path as input:
+To use **plist-processor** to generate a processed plist file, you will have to pass it a path as input and a path to write the output to:
 
 	$ plist-processor --input <path to plist file> --output <path to write processed file to>
 
