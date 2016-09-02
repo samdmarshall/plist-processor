@@ -50,10 +50,12 @@ def findAndSubKey(value_string):
     return new_value
 
 def references(iterable):
+    iterator = None
     try:
-        return iterable.keys()
+        iterator = iterable.keys()
     except AttributeError:
-        return range(len(iterable))
+        iterator = range(len(iterable))
+    return iterator
 
 class Processor(object):
 
@@ -98,7 +100,7 @@ class Processor(object):
                     self.plist.root.keys()
                     native_types_plist = dict(self.plist.root)
                 except AttributeError:
-                    native_types_plist = list(self.plist.root)
+                    native_types_plist = list(self.plist.root) # pylint: disable=redefined-variable-type
                 break
         root_object_type = type(native_types_plist)
         new_root_object = root_object_type()
@@ -113,7 +115,6 @@ class Processor(object):
                     break
                 if case():
                     break
-        
         self.plist.root = self.convertToWriteable(new_root_object)
 
     def processItemByType(self, item):
@@ -132,10 +133,10 @@ class Processor(object):
     def processItemOfObject(self, item, container):
         value = container[item]
         value = self.processItemByType(value)
-        
+
         item = self.convertToWriteable(item)
         value = self.convertToWriteable(value)
-        
+
         return (item, value)
 
     def write(self, output_path):

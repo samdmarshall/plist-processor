@@ -12,7 +12,7 @@ plist-processor
 ## Contributing and Code of Conduct [![License](https://img.shields.io/badge/License-3--Clause%20BSD-blue.svg)](./LICENSE)
 This project and related material has a Code of Conduct that is listed in the [contributing.md](./contributing.md) file. This must be read and adhered to when interacting with this project. Additionally this code is released under a 3-clause BSD license that you can read [here](./LICENSE).
 
-## Installation [![homebrew](https://img.shields.io/badge/homebrew-v1.0-brightgreen.svg)](https://github.com/samdmarshall/homebrew-formulae) [![homebrew](https://img.shields.io/badge/homebrew-HEAD-orange.svg)](https://github.com/samdmarshall/homebrew-formulae)
+## Installation [![homebrew](https://img.shields.io/badge/homebrew-v1.1-brightgreen.svg)](https://github.com/samdmarshall/homebrew-formulae) [![homebrew](https://img.shields.io/badge/homebrew-HEAD-orange.svg)](https://github.com/samdmarshall/homebrew-formulae)
 Via [homebrew](http://brew.sh):
 
 	$ brew update
