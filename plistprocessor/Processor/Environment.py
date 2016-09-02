@@ -28,9 +28,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import re
 import os
-from ..Helpers.Switch import Switch
+import re
+import pbPlist
+from ..Helpers.Switch           import Switch
 
 def extractKey(value_string):
     return value_string[2:-1]
@@ -48,30 +49,94 @@ def findAndSubKey(value_string):
     new_value += value_string[offset:]
     return new_value
 
-def processDictionary(dict_object):
-    for key in dict_object:
-        value = dict_object[key]
-        for case in Switch(type(value)):
-            if case(str):
-                dict_object[key] = findAndSubKey(value)
+def references(iterable):
+    try:
+        return iterable.keys()
+    except AttributeError:
+        return range(len(iterable))
+
+class Processor(object):
+
+    def __init__(self, plist_object):
+        self.plist = plist_object
+
+    def convertToWriteable(self, value):
+        writeable_type = value
+        for case in Switch(self.plist.file_type):
+            if case('ascii'):
+                type_name = None
+                for case in Switch(type(value)):
+                    if case(dict):
+                        type_name = 'dictionary'
+                        value = pbPlist.pbRoot.pbRoot(value)
+                        break
+                    if case(list):
+                        type_name = 'array'
+                        break
+                    if case():
+                        type_name = 'qstring'
+                        break
+                if type_name is not None:
+                    writeable_type = pbPlist.pbItem.pbItemResolver(value, type_name)
                 break
-            if case(list):
-                for index in range(0, len(value)):
-                    dict_object[key][index] = findAndSubKey(value[index])
+            if case('binary'):
                 break
-            if case(dict):
-                dict_object[key] = processDictionary(value)
+            if case('xml'):
                 break
             if case():
                 break
-    return dict_object
-
-class Processor(object):
-    def __init__(self, obj):
-        self.object = obj
+        return writeable_type
 
     def process(self):
-        processDictionary(self.object.root)
+        native_types_plist = None
+        for case in Switch(self.plist.file_type):
+            if case('ascii'):
+                native_types_plist = self.plist.root.nativeType()
+                break
+            if case():
+                try:
+                    self.plist.root.keys()
+                    native_types_plist = dict(self.plist.root)
+                except AttributeError:
+                    native_types_plist = list(self.plist.root)
+                break
+        root_object_type = type(native_types_plist)
+        new_root_object = root_object_type()
+        for ref in references(native_types_plist):
+            item, value = self.processItemOfObject(ref, native_types_plist)
+            for case in Switch(root_object_type):
+                if case(dict):
+                    new_root_object[item] = value
+                    break
+                if case(list):
+                    new_root_object.append(value)
+                    break
+                if case():
+                    break
+        
+        self.plist.root = self.convertToWriteable(new_root_object)
 
-    def write(self, file_path):
-        self.object.write(file_path)
+    def processItemByType(self, item):
+        for case in Switch(type(item)):
+            if case(dict):
+                item = dict([self.processItemOfObject(ref, item) for ref in references(item)])
+                break
+            if case(list):
+                item = [self.processItemOfObject(ref, item)[1] for ref in references(item)]
+                break
+            if case():
+                item = findAndSubKey(item)
+                break
+        return item
+
+    def processItemOfObject(self, item, container):
+        value = container[item]
+        value = self.processItemByType(value)
+        
+        item = self.convertToWriteable(item)
+        value = self.convertToWriteable(value)
+        
+        return (item, value)
+
+    def write(self, output_path):
+        self.plist.write(output_path)

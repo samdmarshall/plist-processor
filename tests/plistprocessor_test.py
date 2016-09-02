@@ -38,6 +38,24 @@ import plistprocessor
 
 test_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tests')
 
+os.environ['TEST_VARIABLE_HOME'] = '/Users/Samantha'
+os.environ['TEST_VARIABLE_SHELL'] = '/usr/local/bin/fish'
+os.environ['TEST_VARIABLE_USER'] = 'Samantha'
+os.environ['TEST_VARIABLE_HAS_DEFAULTS'] = 'true'
+os.environ['TEST_VARIABLE_HAS_FFMPEG'] = 'true'
+os.environ['TEST_VARIABLE_HAS_GIT'] = 'true'
+os.environ['TEST_VARIABLE_HAS_HG'] = 'true'
+os.environ['TEST_VARIABLE_HAS_OPENSSL'] = 'true'
+os.environ['TEST_VARIABLE_HAS_PYTHON'] = 'true'
+os.environ['TEST_VARIABLE_HAS_SCUTIL'] = 'true'
+os.environ['TEST_VARIABLE_HAS_SECURITY'] = 'true'
+os.environ['TEST_VARIABLE_HAS_SHUTDOWN'] = 'true'
+os.environ['TEST_VARIABLE_HAS_SVN'] = 'true'
+os.environ['TEST_VARIABLE_HAS_WC'] = 'true'
+os.environ['TEST_VARIABLE_HAS_XATTR'] = 'true'
+os.environ['TEST_VARIABLE_HAS_XCRUN'] = 'true'
+os.environ['TEST_VARIABLE_HAS_XCRUNNER'] = 'true'
+
 def LoadTestDirectoryAndTestWithName(test, path_subdir, test_file_name):
     test_path = os.path.join(test_directory, path_subdir)
     test_input_path = os.path.join(test_path, test_file_name+'.plist')

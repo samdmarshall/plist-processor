@@ -1,21 +1,24 @@
 {
-	Home = "$(HOME)";
-	Shell = "$(SHELL)";
-	User = "${USER}";
+	Home = "$(TEST_VARIABLE_HOME)";
+	Shell = "$(TEST_VARIABLE_SHELL)";
+	User = "${TEST_VARIABLE_USER}";
 	Tools = (
-		"$(HAS_DEFAULTS)",
-		"$(HAS_FFMPEG)",
-		"$(HAS_GIT)",
-		"$(HAS_HG)",
-		"$(HAS_OPENSSL)",
-		"$(HAS_PYTHON)",
-		"$(HAS_SCUTIL)",
-		"$(HAS_SECURITY)",
-		"$(HAS_SHUTDOWN)",
-		"$(HAS_SVN)",
-		"$(HAS_WC)",
-		"$(HAS_XATTR)",
-		"$(HAS_XCRUN)",
-		"$(HAS_XCRUNNER)",
+		"$(TEST_VARIABLE_HAS_DEFAULTS)",
+		"$(TEST_VARIABLE_HAS_FFMPEG)",
+		"$(TEST_VARIABLE_HAS_GIT)",
+		"$(TEST_VARIABLE_HAS_HG)",
+		"$(TEST_VARIABLE_HAS_OPENSSL)",
+		"$(TEST_VARIABLE_HAS_PYTHON)",
+		"$(TEST_VARIABLE_HAS_SCUTIL)",
+		"$(TEST_VARIABLE_HAS_SECURITY)",
+		"$(TEST_VARIABLE_HAS_SHUTDOWN)",
+		"$(TEST_VARIABLE_HAS_SVN)",
+		"$(TEST_VARIABLE_HAS_WC)",
+		"$(TEST_VARIABLE_HAS_XATTR)",
+		"$(TEST_VARIABLE_HAS_XCRUN)",
+		"$(TEST_VARIABLE_HAS_XCRUNNER)",
 	);
+	Info = {
+		"HasFullCoverage" = "${TEST_VARIABLE_HOME}";
+	};
 }

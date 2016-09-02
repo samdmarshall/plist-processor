@@ -28,11 +28,12 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import os
 import sys
-import pbPlist
 import argparse
-from .version             import __version__ as PLIST_PROCESSOR_VERSION
-from .Processor           import Environment
+from pbPlist                import pbPlist
+from .version               import __version__ as PLIST_PROCESSOR_VERSION
+from .Processor             import Environment
 
 # Main
 def main(argv=sys.argv[1:]):
@@ -65,13 +66,18 @@ def main(argv=sys.argv[1:]):
     has_input = args.input is not None
     has_output = args.output is not None
     if has_input and has_output:
-        plist_obj = pbPlist.pbPlist.PBPlist(args.input)
+        full_input_path = os.path.abspath(args.input)
+        full_output_path = os.path.abspath(args.output)
 
-        pre_processor = Environment.Processor(plist_obj)
+        input_exists = os.path.exists(full_input_path) is True
+        if input_exists:
+            plist_obj = pbPlist.PBPlist(full_input_path)
 
-        pre_processor.process()
+            pre_processor = Environment.Processor(plist_obj)
 
-        pre_processor.write(args.output)
+            pre_processor.process()
+
+            pre_processor.write(full_output_path)
 
 if __name__ == "__main__": # pragma: no cover
     main()

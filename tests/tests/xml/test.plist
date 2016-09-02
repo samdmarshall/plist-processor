@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>Home</key>
-	<string>$(HOME)</string>
+	<string>$(TEST_VARIABLE_HOME)</string>
 	<key>Shell</key>
-	<string>$(SHELL)</string>
+	<string>$(TEST_VARIABLE_SHELL)</string>
 	<key>User</key>
-	<string>${USER}</string>
+	<string>${TEST_VARIABLE_USER}</string>
 	<key>Tools</key>
 	<array>
-		<string>$(HAS_DEFAULTS)</string>
-		<string>$(HAS_FFMPEG)</string>
-		<string>$(HAS_GIT)</string>
-		<string>$(HAS_HG)</string>
-		<string>$(HAS_OPENSSL)</string>
-		<string>$(HAS_PYTHON)</string>
-		<string>$(HAS_SCUTIL)</string>
-		<string>$(HAS_SECURITY)</string>
-		<string>$(HAS_SHUTDOWN)</string>
-		<string>$(HAS_SVN)</string>
-		<string>$(HAS_WC)</string>
-		<string>$(HAS_XATTR)</string>
-		<string>$(HAS_XCRUN)</string>
-		<string>$(HAS_XCRUNNER)</string>
+		<string>$(TEST_VARIABLE_HAS_DEFAULTS)</string>
+		<string>$(TEST_VARIABLE_HAS_FFMPEG)</string>
+		<string>$(TEST_VARIABLE_HAS_GIT)</string>
+		<string>$(TEST_VARIABLE_HAS_HG)</string>
+		<string>$(TEST_VARIABLE_HAS_OPENSSL)</string>
+		<string>$(TEST_VARIABLE_HAS_PYTHON)</string>
+		<string>$(TEST_VARIABLE_HAS_SCUTIL)</string>
+		<string>$(TEST_VARIABLE_HAS_SECURITY)</string>
+		<string>$(TEST_VARIABLE_HAS_SHUTDOWN)</string>
+		<string>$(TEST_VARIABLE_HAS_SVN)</string>
+		<string>$(TEST_VARIABLE_HAS_WC)</string>
+		<string>$(TEST_VARIABLE_HAS_XATTR)</string>
+		<string>$(TEST_VARIABLE_HAS_XCRUN)</string>
+		<string>$(TEST_VARIABLE_HAS_XCRUNNER)</string>
 	</array>
 </dict>
 </plist>
